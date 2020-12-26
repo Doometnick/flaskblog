@@ -23,7 +23,7 @@ def send_reset_email(user):
     msg = Message("Password Reset Request",
                   sender="vega.dbmks@gmail.com",
                   recipients=[user.email])
-    msg.body = (f" To reset your password, visit the following link: "
-                f"{url_for('users.reset_token', token=token, _external=True)}\n"
-                f"If you did not make this request, then ignore this email and no changes will be made.")
+    msg.body = (f"To reset your password, visit the following link: "
+                f"{url_for('users.reset_token', token=token, _external=True)}\n\n"
+                f"IMPORTANT: If you did not make this request, then ignore this email and no changes will be made.")
     mail.send(msg)
